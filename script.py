@@ -73,7 +73,7 @@ if __name__ == "__main__":
     8g *⟶* ₹{gold_rates[0][4]}
 
     🔘 *Silver*
-    1g *⟶* ₹{silver_rates[0][1]}   {price_change(silver_rates[0][1],gold_rates[1][1])}
+    1g *⟶* ₹{silver_rates[0][1]}   {price_change(silver_rates[0][1], silver_rates[1][1])}
     """
     
     #Sending SMS to the respective number over WA
