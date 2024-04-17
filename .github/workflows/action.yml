@@ -1,7 +1,7 @@
 name: Metal_Rates
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "1 * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
