@@ -1,4 +1,10 @@
 import os
 
-print("Hello World!! ran by Github actions")
-print(os.environ["URL"])
+print("Hello World!! I was ran by Github actions")
+
+try:
+    number = os.environ["URL"]
+except KeyError:
+    number = "Key Not Found"
+
+print(number)
