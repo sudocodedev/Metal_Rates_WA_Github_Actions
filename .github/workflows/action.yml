@@ -1,9 +1,9 @@
 name: Send Metal Rates info over WA
-on:
-  workflow_dispatch
-  
+on: workflow_dispatch
+
 jobs:
   build:
+    environment: metal_rate
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repo
@@ -14,9 +14,9 @@ jobs:
           python-version: "3.10"
       - name: execute py script
         env:
-          TO_PHONE_NUMBER: ${{ vars.TO_PHONE_NUMBER }}
-          FROM_PHONE_NUMBER: ${{ vars.FROM_PHONE_NUMBER }}
-          URL: ${{ vars.URL }}
-          AUTH_TOKEN: ${{ vars.AUTH_TOKEN }}
-          ACCOUNT_SID: ${{ vars.ACCOUNT_SID }}
+          TO_PHONE_NUMBER: ${{ secrets.TO_PHONE_NUMBER }}
+          FROM_PHONE_NUMBER: ${{ secrets.FROM_PHONE_NUMBER }}
+          URL: ${{ secrets.URL }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
         run: python script.py
