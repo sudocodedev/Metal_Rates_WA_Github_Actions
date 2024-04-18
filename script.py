@@ -1,2 +1,7 @@
 import os, requests
-print(requests.get("https://www.livechennai.com/gold_silverrate.asp").status_code)
+
+try:
+    url = os.environ['URL']
+    print(requests.get(url).status_code)
+except KeyError:
+    print("URL not found")

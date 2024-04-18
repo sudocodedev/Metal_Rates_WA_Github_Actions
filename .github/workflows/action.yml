@@ -18,9 +18,9 @@ jobs:
           pip install -r requirements.txt
       - name: execute py script
         env:
-          TO_PHONE_NUMBER: ${{ secrets.TO_PHONE_NUMBER }}
-          FROM_PHONE_NUMBER: ${{ secrets.FROM_PHONE_NUMBER }}
-          URL: ${{ secrets.URL }}
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          TO_PHONE_NUMBER: ${{ vars.TO_PHONE_NUMBER }}
+          FROM_PHONE_NUMBER: ${{ vars.FROM_PHONE_NUMBER }}
+          URL: ${{ vars.URL }}
+          AUTH_TOKEN: ${{ vars.AUTH_TOKEN }}
+          ACCOUNT_SID: ${{ vars.ACCOUNT_SID }}
         run: python script.py
