@@ -1,4 +1,2 @@
 import os, requests
-url = os.environ.get("URL")
-print(url)
-print(requests.get(url).status_code)
+print(requests.get("https://www.livechennai.com/gold_silverrate.asp").status_code)
