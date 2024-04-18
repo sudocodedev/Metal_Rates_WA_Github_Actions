@@ -1,7 +1,7 @@
 name: Send Metal Rates info over WA
 on:
   schedule:
-    - cron: 30 11 * * 1-5 # At 11:30 on every day-of-week from Monday through Friday.
+    - cron: '* * * * *' # At 11:30 on every day-of-week from Monday through Friday.
 jobs:
   build:
     runs-on: ubuntu-latest

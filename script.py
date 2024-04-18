@@ -46,7 +46,7 @@ def price_change(rate1:str, rate2:str):
 
 if __name__ == "__main__":
 
-    data = requests.get(os.environ['URL'])
+    data = requests.get(os.environ['URL'].strip())
 
     html = BeautifulSoup(data.text, 'html.parser')
 
@@ -77,6 +77,6 @@ if __name__ == "__main__":
     """
     
     #Sending SMS to the respective number over WA
-    client = Client(os.environ["ACCOUNT_SID"], os.environ["AUTH_TOKEN"])
-    message = client.messages.create(to=os.environ["TO_PHONE_NUMBER"], from_=os.environ["FROM_PHONE_NUMBER"], body=message)
+    client = Client(os.environ["ACCOUNT_SID"].strip(), os.environ["AUTH_TOKEN"].strip())
+    message = client.messages.create(to=os.environ["TO_PHONE_NUMBER"].strip(), from_=os.environ["FROM_PHONE_NUMBER"].strip(), body=message)
     print(message.sid)
