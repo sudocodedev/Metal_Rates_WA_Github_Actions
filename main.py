@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     message['Subject'] = f"Metal Rate {data['date']}"
     message['From'] = sender
-    message['To'] = receivers
+    message['Bcc'] = receivers
 
     message.set_content("Hi There!")
 
