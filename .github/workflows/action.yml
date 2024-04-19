@@ -1,4 +1,4 @@
-name: Send Metal Rates info over WA
+name: Send Metal Rates info
 on: workflow_dispatch
 
 jobs:
