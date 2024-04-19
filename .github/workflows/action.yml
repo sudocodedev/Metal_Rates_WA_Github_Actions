@@ -1,5 +1,7 @@
 name: Send Metal Rates info
-on: workflow_dispatch
+on:
+  schedule:
+    - cron: "20 6 * * 1-6" #At 06:20 on every day-of-week from Monday through Saturday.
 
 jobs:
   build:
