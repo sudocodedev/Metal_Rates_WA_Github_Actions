@@ -1,7 +1,7 @@
 name: Send Metal Rates info
 on:
   schedule:
-    - cron: "20 6 * * 1-6" #At 06:20 on every day-of-week from Monday through Saturday.
+    - cron: "* 7 * * 1-6" #At every minute past hour 7 on every day-of-week from Monday through Saturday.
 
 jobs:
   build:
