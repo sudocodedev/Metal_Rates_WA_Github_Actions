@@ -30,7 +30,7 @@ if __name__ == "__main__":
             <h3 style="color:#0d1b2a;">சென்னை Metal Rates {data['date']}</h3>
             <h3 style="color:#393d3f">🪙 Gold</h3>
             <b>24K</b>
-            <span style="font-size: 1.5rem; font-weight: bold; color:{data['gold']['24k']['color']};">  {data['gold']['24k']['symbol']}</span>
+            <span style="font-size: 1.5rem; font-weight: bold; color:{data['gold']['24k']['color']};">  {data['gold']['24k']['diff']} {data['gold']['24k']['symbol']}</span>
             <p style="font-size:1rem;">
                 1g ⟶ ₹{data['gold']['24k']['1g']}
             </p>
@@ -38,7 +38,7 @@ if __name__ == "__main__":
                 8g ⟶ ₹{data['gold']['24k']['8g']}
             </p>
             <b>22K</b>
-            <span style="font-size: 1.5rem; font-weight: bold; color:{data['gold']['22k']['color']};">  {data['gold']['22k']['symbol']}</span>
+            <span style="font-size: 1.5rem; font-weight: bold; color:{data['gold']['22k']['color']};">  {data['gold']['22k']['diff']} {data['gold']['22k']['symbol']}</span>
             <p style="font-size:1rem;">
                 1g ⟶ ₹{data['gold']['22k']['1g']}
             </p>
@@ -46,7 +46,7 @@ if __name__ == "__main__":
                 8g ⟶ ₹{data['gold']['22k']['8g']}
             </p>
             <br>
-            <h3 style="color:#393d3f">🔘 Silver <span style="font-size: 1.5rem; font-weight: bold; color:{data['silver']['color']};">  {data['silver']['symbol']}</span></h3>
+            <h3 style="color:#393d3f">🔘 Silver <span style="font-size: 1.5rem; font-weight: bold; color:{data['silver']['color']};">  {data['silver']['diff']} {data['silver']['symbol']}</span></h3>
             <p style="font-size:1rem;">
                 1g ⟶ ₹{data['silver']['1g']}
             </p>

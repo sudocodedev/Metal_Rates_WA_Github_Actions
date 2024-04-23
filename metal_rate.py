@@ -44,16 +44,26 @@ def symbols(delta:str):
         cache2 = '↔'
     return cache1, cache2
 
-def price_change(rate1:str, rate2:str):
+def price_change(rate1:str, rate2:str) -> list:
     """
         calculates the price change by comparing price of current day's with previous day's
-        and returns an emoji up (or) down (or) no change in price changes
+        and returns a list which contains an emoji up (or) down (or) no change in price changes along with price diff
     """
+    temp=[]
     cache1 = float(rate1.replace(',','')) - float(rate2.replace(',',''))
     cache2 = float(0)
-    if cache1 == cache2: return '0'
-    return '+' if cache1 > cache2 else '-'
+    if cache1 == cache2: 
+        temp.append('0')
+        temp.append(cache1)
+    else:
+        if cache1 > cache2:
+            temp.append('+')
+            temp.append(cache1)
+        else:
+            temp.append('-')
+            temp.append(cache1)
 
+    return temp
 
 def compute_rate(url:str) -> dict:
     # Returns the dictionary with required rates
@@ -64,19 +74,22 @@ def compute_rate(url:str) -> dict:
                 '1g': '',
                 '8g': '',
                 'color': '',
-                'symbol': ''
+                'symbol': '',
+                'diff': ''
             },
             '22k': {
                 '1g': '',
                 '8g': '',
                 'color': '',
-                'symbol': ''
+                'symbol': '',
+                'diff': ''
             }
         },
         'silver': {
             '1g': '',
             'color': '',
-            'symbol': ''
+            'symbol': '',
+            'diff': ''
         }
     }
 
@@ -105,13 +118,17 @@ def compute_rate(url:str) -> dict:
     rates['silver']['1g'] = silver_rates [0][1]
 
     # Calculating price change
-    au1 = price_change(gold_rates[0][1],gold_rates[1][1])
-    au2 = price_change(gold_rates[0][3],gold_rates[1][3])
-    ag = price_change(silver_rates[0][1], silver_rates[1][1])
+    au1, diff1 = price_change(gold_rates[0][1],gold_rates[1][1])
+    au2, diff2 = price_change(gold_rates[0][3],gold_rates[1][3])
+    ag, diff3 = price_change(silver_rates[0][1], silver_rates[1][1])
+
+    rates['gold']['24k']['diff'] = diff1
+    rates['gold']['22k']['diff'] = diff2
+    rates['silver']['diff'] = diff3
 
     rates['gold']['24k']['color'], rates['gold']['24k']['symbol'] = symbols(au1) 
     rates['gold']['22k']['color'], rates['gold']['22k']['symbol'] = symbols(au2) 
-    rates['silver']['color'], rates['silver']['symbol'] = symbols(ag) 
+    rates['silver']['color'], rates['silver']['symbol'] = symbols(ag)
 
     return rates
 
