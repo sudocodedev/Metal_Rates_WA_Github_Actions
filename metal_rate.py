@@ -50,7 +50,7 @@ def price_change(rate1:str, rate2:str) -> list:
         and returns a list which contains an emoji up (or) down (or) no change in price changes along with price diff
     """
     temp=[]
-    cache1 = float(rate1.replace(',','')) - float(rate2.replace(',',''))
+    cache1 = round(float(rate1.replace(',','')) - float(rate2.replace(',','')), 2) # Added round() fn to fix decimal length issue
     cache2 = float(0)
     if cache1 == cache2: 
         temp.append('0')
