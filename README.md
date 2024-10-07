@@ -1,10 +1,10 @@
 # Gold Rate Notifier
 
-A Python project that scrapes gold rates based on carats in Chennai and sends daily email updates to users.
+A Python project that scrapes gold & silver rates based on carats in Chennai and sends daily email updates to users.
 
 ## Features
 
-- Scrapes gold rates using Beautiful Soup
+- Scrapes gold & silver rates using Beautiful Soup
 - Sends daily email notifications with current gold rates
 - Configurable email settings using GitHub Secrets and Environment Variables
 - Automated script execution with GitHub Actions
